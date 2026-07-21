@@ -1,0 +1,345 @@
+//general
+
+input {
+    keyboard {
+        xkb {}
+    }
+
+    touchpad {
+        tap
+        dwtp
+        natural-scroll
+        accel-speed 0.2
+    }
+
+    mouse {
+        natural-scroll
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "eDP-1" {
+    mode "1920x1080@60.020"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+cursor {
+    xcursor-size 22
+    xcursor-theme "Bibata-Modern-Classic"
+}
+
+environment {
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
+layout {
+    gaps 2
+    center-focused-column "never"
+
+    // controlled with super+R
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+
+    shadow {
+        on
+        softness 15
+        spread 10
+        offset x=0 y=5
+    }
+
+    struts { }
+}
+
+// Animations
+animations {
+    workspace-switch {
+        spring damping-ratio=0.65 stiffness=500 epsilon=0.0001
+    }
+    window-open {
+        spring damping-ratio=0.55 stiffness=600 epsilon=0.0001
+    }
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+    horizontal-view-movement {
+        spring damping-ratio=0.65 stiffness=500 epsilon=0.0001
+    }
+    window-movement {
+        spring damping-ratio=0.65 stiffness=500 epsilon=0.0001
+    }
+    window-resize {
+        spring damping-ratio=0.65 stiffness=500 epsilon=0.0001
+        custom-shader r"
+            vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+                vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;
+                vec4 color = texture2D(niri_tex_next, coords_tex_next.st);
+                return color;
+            }
+        "
+    }
+    config-notification-open-close {
+        spring damping-ratio=0.65 stiffness=700 epsilon=0.001
+    }
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+    overview-open-close {
+        spring damping-ratio=0.75 stiffness=400 epsilon=0.0003
+    }
+}
+
+
+//startup
+hotkey-overlay {
+    skip-at-startup
+}
+
+spawn-at-startup "noctalia"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+//workspaces
+workspace "a" { }
+workspace "b" { }
+
+//keybinds
+binds {
+    //not used
+    // super+C
+    // super+D
+    // super+G
+    // super+M
+    // super+O
+    // super+P
+    // super+T
+    // super+W
+    // super+Y
+
+    //General
+    super+Slash     { show-hotkey-overlay; }
+    super+E         { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    //Apps
+    super+Space hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    super+B     { spawn "firefox"; }
+    super+N     { spawn "nautilus"; }
+    super+Z     { spawn "zed"; }
+
+    //Noctalia panels
+    super+A      { spawn-sh "noctalia msg panel-toggle launcher"; }
+    super+Return { spawn-sh "noctalia msg panel-toggle control-center"; }
+    super+S      { spawn-sh "noctalia msg settings-toggle"; }
+
+    //Overview
+    super+X repeat=false { toggle-overview; }
+
+    //Window management
+    super+Q repeat=false { close-window; }
+    super+R              { switch-preset-column-width; }
+    super+Alt+R          { switch-preset-window-height; }
+    super+Ctrl+R         { reset-window-height; }
+    super+F              { maximize-column; }
+    super+Alt+F          { fullscreen-window; }
+    super+Ctrl+F         { expand-column-to-available-width; }
+    super+Ctrl+C         { center-visible-columns; }
+    super+Alt+V          { switch-focus-between-floating-and-tiling; }
+    super+V              { toggle-window-floating; }
+
+    //Resize columns and windows
+    super+Minus       { set-column-width "-10%"; }
+    super+Equal       { set-column-width "+10%"; }
+    super+Shift+Minus { set-window-height "-10%"; }
+    super+Shift+Equal { set-window-height "+10%"; }
+
+    //Consume / expel windows in columns
+    super+Comma        { consume-window-into-column; }
+    super+Period       { expel-window-from-column; }
+    super+BracketLeft  { consume-or-expel-window-left; }
+    super+BracketRight { consume-or-expel-window-right; }
+
+    //Focus columns
+    super+Left  { focus-column-left; }
+    super+Right { focus-column-right; }
+    super+H     { focus-column-left; }
+    super+L     { focus-column-right; }
+
+    //Focus windows
+    super+J     { focus-window-down; }
+    super+K     { focus-window-up; }
+
+    //Move columns / windows
+    super+Alt+Left  { move-column-left; }
+    super+Alt+Right { move-column-right; }
+    super+Alt+H     { move-column-left; }
+    super+Alt+L     { move-column-right; }
+    super+Alt+J     { move-window-down; }
+    super+Alt+K     { move-window-up; }
+
+    //Move columns between workspaces
+    super+Alt+Down  { move-column-to-workspace-down; }
+    super+Alt+Up    { move-column-to-workspace-up; }
+    super+Ctrl+U    { move-column-to-workspace-down; }
+    super+Ctrl+I    { move-column-to-workspace-up; }
+
+    //Focus workspaces
+    super+Down { focus-workspace-down; }
+    super+Up   { focus-workspace-up; }
+    super+U    { focus-workspace-down; }
+    super+I    { focus-workspace-up; }
+
+    //Move workspaces
+    super+Shift+Down { move-workspace-down; }
+    super+Shift+Up   { move-workspace-up; }
+    super+Shift+U    { move-workspace-down; }
+    super+Shift+I    { move-workspace-up; }
+
+    //Scroll to navigate
+    super+Alt+WheelScrollDown       cooldown-ms=150  { focus-workspace-down; }
+    super+Alt+WheelScrollUp         cooldown-ms=150  { focus-workspace-up; }
+    super+Shift+Alt+WheelScrollDown cooldown-ms=150  { move-column-to-workspace-down; }
+    super+Shift+Alt+WheelScrollUp   cooldown-ms=150  { move-column-to-workspace-up; }
+    super+WheelScrollDown       { focus-column-right; }
+    super+WheelScrollUp         { focus-column-left; }
+    super+Shift+WheelScrollDown { move-column-right; }
+    super+Shift+WheelScrollUp   { move-column-left; }
+
+    //Jump to workspace by index
+    super+1 { focus-workspace 1; }
+    super+2 { focus-workspace 2; }
+    super+3 { focus-workspace 3; }
+    super+4 { focus-workspace 4; }
+    super+5 { focus-workspace 5; }
+    super+6 { focus-workspace 6; }
+    super+7 { focus-workspace 7; }
+    super+8 { focus-workspace 8; }
+    super+9 { focus-workspace 9; }
+
+    //Move column to workspace by index
+    super+Alt+1 { move-column-to-workspace 1; }
+    super+Alt+2 { move-column-to-workspace 2; }
+    super+Alt+3 { move-column-to-workspace 3; }
+    super+Alt+4 { move-column-to-workspace 4; }
+    super+Alt+5 { move-column-to-workspace 5; }
+    super+Alt+6 { move-column-to-workspace 6; }
+    super+Alt+7 { move-column-to-workspace 7; }
+    super+Alt+8 { move-column-to-workspace 8; }
+    super+Alt+9 { move-column-to-workspace 9; }
+
+    //Column first / last
+    super+Home      { focus-column-first; }
+    super+End       { focus-column-last; }
+    super+Ctrl+Home { move-column-to-first; }
+    super+Ctrl+End  { move-column-to-last; }
+
+    //Screenshots
+    Print      { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print  { screenshot-window; }
+
+    //Hardware keys
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    //Media keys (playerctl)
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    //Brightness
+    XF86MonBrightnessUp   { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+
+    // super+Shift+P { power-off-monitors; }
+}
+
+//Window rules
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+//Firefox: picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+//KeePassXC: block from screen capture.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    block-out-from "screen-capture"
+}
+
+//Firefox: open maximized on workspace "a".
+window-rule {
+    match title="Firefox"
+    open-maximized true
+    open-on-workspace "a"
+}
+
+//Spotify: open maximized on workspace "b".
+window-rule {
+    match title="Spotify"
+    open-maximized true
+    open-on-workspace "b"
+}
+
+//Default: rounded corners on all windows.
+window-rule {
+    geometry-corner-radius 22
+    clip-to-geometry true
+}
+
+//Noctalia
+
+//Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
+//Place wallpaper in overview backdrop.
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+
+//laptop lid
+switch-events {
+    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
+}
+
+include "noctalia.kdl"
