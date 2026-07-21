@@ -117,7 +117,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Shot from %Y-%m-%d %H-%M-%S.png"
 
 //workspaces
 workspace "a" { }
@@ -254,9 +254,10 @@ binds {
     super+Ctrl+End  { move-column-to-last; }
 
     //Screenshots
-    Print      { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print  { screenshot-window; }
+    Print          hotkey-overlay-title="Screenshot selected region" { spawn "shots" "region"; }
+    Alt+Print      hotkey-overlay-title="Screenshot screen" { spawn "shots" "monitor-focused"; }
+    super+Print    hotkey-overlay-title="Screenshot selected region (no annotation)" { screenshot; }
+    ctrl+Print     hotkey-overlay-title="Screenshot screen (no annotation)" { screenshot-screen; }
 
     //Hardware keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
@@ -308,6 +309,11 @@ window-rule {
     match title="Spotify"
     open-maximized true
     open-on-workspace "b"
+}
+
+window-rule {
+    match app-id="com.gabm.satty"
+    open-floating true
 }
 
 //Default: rounded corners on all windows.
