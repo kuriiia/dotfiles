@@ -50,7 +50,7 @@ chmod +x ~/.local/bin/shots
 ### Dependencies
 The script depends on `grim`, `slurp`, and `satty`.
 ```bash
-sudo pacman -S slurp wl-clipboard
+sudo pacman -S grim slurp wl-clipboard satty
 ```
 
 ### Satty window rule (floating)
