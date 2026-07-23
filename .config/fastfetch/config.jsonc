@@ -21,7 +21,7 @@
   "modules": [
     {
       "type": "command",
-      "key": "     🥠",
+      "key": "     󰵅 ",
       "text": "fortune -s -n 50 | head -n 1",
     },
     {

@@ -72,5 +72,5 @@ initial-tool = "brush"
 actions-on-enter = ["save-to-file"]
 ```
 
-> [!note] Note
+> Note
 > we are still using the default niri screenshot tool. so don't remove screenshot path from the config.kdl
