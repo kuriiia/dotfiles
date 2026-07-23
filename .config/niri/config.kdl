@@ -259,6 +259,9 @@ binds {
     super+Print    hotkey-overlay-title="Screenshot selected region (no annotation)" { screenshot; }
     ctrl+Print     hotkey-overlay-title="Screenshot screen (no annotation)" { screenshot-screen; }
 
+    //screen recorder (noctalia)
+    Insert hotkey-overlay-title="Toggle start/stop screen recording" { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle"; }
+
     //Hardware keys
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
