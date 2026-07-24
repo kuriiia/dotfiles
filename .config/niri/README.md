@@ -42,8 +42,10 @@ yay -S --needed \
 
 ## Post-install
 
-Copy everything from the `niri` folder to `~/.config/niri`
-Skip the `noctalia.kdl`
+Copy everything from the `niri` folder to `~/.config/niri`.
+
+Skip the `noctalia.kdl`.
+
 Super + / to see shortcuts.
 
 ### Apps
