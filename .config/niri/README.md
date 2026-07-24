@@ -1,6 +1,4 @@
 
-Packages and configuration needed to run the niri config on a fresh Arch install.
-
 ## Prerequisites
 
 An AUR helper is required for some packages, paru or yay.
