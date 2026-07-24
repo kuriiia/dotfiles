@@ -30,7 +30,7 @@ yay -S --needed \
   newaita-reborn-icons-git
 ```
 
-> `noctalia-shell` is the stable old release. Use `noctalia-git` it's better
+> `noctalia-shell` is the stable old release. Use `noctalia` it's better
 
 ## Fonts
 
