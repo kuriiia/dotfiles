@@ -24,10 +24,7 @@ sudo pacman -S --needed \
 ## AUR packages
 
 ```bash
-yay -S --needed \
-  noctalia \
-  bibata-cursor-theme \
-  newaita-reborn-icons-git
+yay -S noctalia bibata-cursor-theme newaita-reborn-icons-git
 ```
 
 > `noctalia-shell` is the stable old release. Use `noctalia` it's better
@@ -35,10 +32,9 @@ yay -S --needed \
 ## Fonts
 
 ```bash
-yay -S --needed \
-  ttf-inter \
-  nerd-fonts-meslo-lg
+sudo pacman -S inter-font
 ```
+
 
 ## Post-install
 
