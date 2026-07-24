@@ -86,7 +86,7 @@ qt6ct
 ```
 ### Screenshots
 
-See [screenshot.md](../.config/niri/screenshot.md) for keybinds, the `shots`
+See [screenshot.md](/.config/niri/screenshot.md) for keybinds, the `shots`
 script, and `satty` configuration.
 
 ### Cursor
