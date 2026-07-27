@@ -57,7 +57,7 @@ layout {
     }
 
     shadow {
-        on
+        off
         softness 15
         spread 10
         offset x=0 y=5
@@ -126,7 +126,6 @@ workspace "b" { }
 //keybinds
 binds {
     //not used
-    // super+C
     // super+D
     // super+G
     // super+M
@@ -166,6 +165,7 @@ binds {
     super+Ctrl+C         { center-visible-columns; }
     super+Alt+V          { switch-focus-between-floating-and-tiling; }
     super+V              { toggle-window-floating; }
+    Super+C              { spawn "float"; }
 
     //Resize columns and windows
     super+Minus       { set-column-width "-10%"; }
