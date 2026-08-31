@@ -1,0 +1,27 @@
+include "src/binds.kdl"
+include "src/layout.kdl"
+include "src/windowRules.kdl"
+include "src/inputOutput.kdl"
+include "src/animations/default.kdl"
+// include "src/animations/test.kdl"
+
+//general
+
+environment {
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
+//startup
+hotkey-overlay {
+    skip-at-startup
+}
+
+spawn-at-startup "mako"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

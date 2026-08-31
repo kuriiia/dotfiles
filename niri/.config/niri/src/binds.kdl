@@ -1,0 +1,162 @@
+//keybinds
+binds {
+    //not used
+    // Super+D
+    // Super+G
+    // Super+M
+    // Super+O
+    // Super+P
+    // Super+T
+    // Super+W
+    // Super+Y
+
+    //General
+    Super+Slash     { show-hotkey-overlay; }
+    Super+E         { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    //Apps
+    Super+Space hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Super+B     { spawn "firefox"; }
+    Super+N     { spawn "nautilus"; }
+    // Super+Z     { spawn "zed"; }
+    Super+Z     { spawn "hyprlock"; }
+
+    //Ignis panels
+    Super+A      { spawn "fuzzel"; }
+    // Super+Return { spawn "ignis" "open-window" "PowerMenu"; }
+    // Super+S      { spawn "ignis" "open-window" "Settings"; }
+
+    //Overview
+    Super+X repeat=false { toggle-overview; }
+
+    //Window management
+    Super+Q repeat=false { close-window; }
+    Super+R              { switch-preset-column-width; }
+    Super+Alt+R          { switch-preset-window-height; }
+    Super+Ctrl+R         { reset-window-height; }
+    Super+F              { maximize-column; }
+    Super+Alt+F          { fullscreen-window; }
+    Super+Ctrl+F         { expand-column-to-available-width; }
+    Super+Ctrl+C         { center-visible-columns; }
+    Super+Alt+V          { switch-focus-between-floating-and-tiling; }
+    Super+V              { toggle-window-floating; }
+    //floating window
+    Super+C              { spawn-sh "python3 ~/.config/niri/scripts/niri_float_helper.py -d"; }
+
+    //Resize columns and windows
+    Super+Minus       { set-column-width "-10%"; }
+    Super+Equal       { set-column-width "+10%"; }
+    Super+Shift+Minus { set-window-height "-10%"; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+
+    //Consume / expel windows in columns
+    Super+Comma        { consume-window-into-column; }
+    Super+Period       { expel-window-from-column; }
+    Super+BracketLeft  { consume-or-expel-window-left; }
+    Super+BracketRight { consume-or-expel-window-right; }
+
+    //Focus columns
+    Super+Left  { focus-column-left; }
+    Super+Right { focus-column-right; }
+    Super+H     { focus-column-left; }
+    Super+L     { focus-column-right; }
+
+    //Focus windows
+    Super+J     { focus-window-down; }
+    Super+K     { focus-window-up; }
+
+    //Move columns / windows
+    Super+Alt+Left  { move-column-left; }
+    Super+Alt+Right { move-column-right; }
+    Super+Alt+H     { move-column-left; }
+    Super+Alt+L     { move-column-right; }
+    Super+Alt+J     { move-window-down; }
+    Super+Alt+K     { move-window-up; }
+
+    //Move columns between workspaces
+    Super+Alt+Down  { move-column-to-workspace-down; }
+    Super+Alt+Up    { move-column-to-workspace-up; }
+    Super+Ctrl+U    { move-column-to-workspace-down; }
+    Super+Ctrl+I    { move-column-to-workspace-up; }
+
+    //Focus workspaces
+    Super+Down { focus-workspace-down; }
+    Super+Up   { focus-workspace-up; }
+    Super+U    { focus-workspace-down; }
+    Super+I    { focus-workspace-up; }
+
+    //Move workspaces
+    Super+Shift+Down { move-workspace-down; }
+    Super+Shift+Up   { move-workspace-up; }
+    Super+Shift+U    { move-workspace-down; }
+    Super+Shift+I    { move-workspace-up; }
+
+    //Scroll to navigate
+    Super+Alt+WheelScrollDown       cooldown-ms=150  { focus-workspace-down; }
+    Super+Alt+WheelScrollUp         cooldown-ms=150  { focus-workspace-up; }
+    Super+Shift+Alt+WheelScrollDown cooldown-ms=150  { move-column-to-workspace-down; }
+    Super+Shift+Alt+WheelScrollUp   cooldown-ms=150  { move-column-to-workspace-up; }
+    Super+WheelScrollDown       { focus-column-right; }
+    Super+WheelScrollUp         { focus-column-left; }
+    Super+Shift+WheelScrollDown { move-column-right; }
+    Super+Shift+WheelScrollUp   { move-column-left; }
+
+    //Jump to workspace by index
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+
+    //Move column to workspace by index
+    Super+Alt+1 { move-column-to-workspace 1; }
+    Super+Alt+2 { move-column-to-workspace 2; }
+    Super+Alt+3 { move-column-to-workspace 3; }
+    Super+Alt+4 { move-column-to-workspace 4; }
+    Super+Alt+5 { move-column-to-workspace 5; }
+    Super+Alt+6 { move-column-to-workspace 6; }
+    Super+Alt+7 { move-column-to-workspace 7; }
+    Super+Alt+8 { move-column-to-workspace 8; }
+    Super+Alt+9 { move-column-to-workspace 9; }
+
+    //Column first / last
+    Super+Home      { focus-column-first; }
+    Super+End       { focus-column-last; }
+    Super+Ctrl+Home { move-column-to-first; }
+    Super+Ctrl+End  { move-column-to-last; }
+
+    //Screenshots via script
+    Print          hotkey-overlay-title="Screenshot selected region" { spawn "~/.config/niri/scripts/screenshots.sh" "region" ; }
+    Alt+Print      hotkey-overlay-title="Screenshot fullscreen" { spawn "~/.config/niri/scripts/screenshots.sh" "window"; }
+    //niri built-in
+    Super+Print    hotkey-overlay-title="Screenshot selected region (niri built-in tool)" { screenshot; }
+    ctrl+Print     hotkey-overlay-title="Screenshot screen (niri built-in tool)" { screenshot-screen; }
+
+    //screen recorder via script
+    Insert hotkey-overlay-title="Toggle Full screen recording" { spawn "~/.config/niri/scripts/record.sh" "screen"; }
+    Alt+Insert hotkey-overlay-title="Toggle screen recording (select region)" { spawn "~/.config/niri/scripts/record.sh" "region"; }
+
+    //Hardware keys (volume)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    //Media keys (playerctl)
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    //Brightness
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // Super+Shift+P { power-off-monitors; }
+}

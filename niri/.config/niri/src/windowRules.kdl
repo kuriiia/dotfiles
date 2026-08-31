@@ -1,0 +1,46 @@
+//Window rules
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+//Firefox: picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+//KeePassXC: block from screen capture.
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    block-out-from "screen-capture"
+}
+
+//Firefox: open maximized on workspace "a".
+window-rule {
+    match title="Firefox"
+    open-maximized true
+    open-on-workspace "a"
+}
+
+//Spotify: open maximized on workspace "a".
+window-rule {
+    match title="Spotify"
+    open-maximized true
+    open-on-workspace "a"
+}
+
+//Satty
+window-rule {
+    match app-id="com.gabm.satty"
+    open-floating true
+}
+
+//Default: rounded corners on all windows.
+window-rule {
+    geometry-corner-radius 22
+    clip-to-geometry true
+}
+
+//workspaces
+workspace "a" { }

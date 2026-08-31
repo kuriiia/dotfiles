@@ -1,0 +1,31 @@
+input {
+    keyboard {
+        xkb {}
+    }
+
+    touchpad {
+        tap
+        dwtp
+        natural-scroll
+        accel-speed 0.2
+    }
+
+    mouse {
+        natural-scroll
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "eDP-1" {
+    mode "1920x1080@60.020"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+cursor {
+    xcursor-size 22
+    xcursor-theme "Bibata-Modern-Classic"
+}
