@@ -1,0 +1,5 @@
+[general]
+early-exit = true
+copy-command = "wl-copy --type image/png"
+initial-tool = "brush"
+actions-on-enter = ["save-to-file"]
