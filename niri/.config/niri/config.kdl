@@ -1,5 +1,6 @@
 include "src/binds.kdl"
 include "src/layout.kdl"
+include "src/layerRules.kdl"
 include "src/windowRules.kdl"
 include "src/inputOutput.kdl"
 include "src/animations/default.kdl"

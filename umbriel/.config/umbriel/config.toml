@@ -1,0 +1,88 @@
+
+# [include] merges extra files into this one. Included files are parsed first,
+# in list order (later files override earlier ones), then everything in this
+# file overrides all of them. That is why Noctalia's dynamic theming can render
+# its palette into a separate noctalia.toml and still let you override the
+# generated colors here.
+
+[include]
+files = [
+    "src/appearance.toml",
+    "src/animation.toml",
+    "src/inputOutput.toml",
+    "src/binds.toml",
+    "src/windowRules.toml",
+    "src/layout.toml",
+    "noctalia.toml",
+]
+
+[general]
+autostart = ["noctalia"]
+mod_key = "Super"            # Mod in keybinds; defaults to Super (Alt when nested)
+xwayland = true                # requires xwayland-satellite on PATH; restart to change
+show_cheatsheet = false         # show keybinds overlay on startup
+focus_on_activate = false      # unsolicited requests cannot add focus; trusted launches may still focus
+honor_restored_maximize = false # let apps restore their saved maximized state
+
+[environment]
+GTK_THEME = "Adwaita:dark"
+QT_QPA_PLATFORMTHEME = "qt5ct"
+
+# Defines commands that are executed when the laptop lid is closed or opened.
+[events]
+# lid_close = "notify-send 'The laptop lid is closed!'"
+# lid_open = "notify-send 'The laptop lid is open!'"
+
+[workspaces]
+back_and_forth = false
+empty_above = false
+
+# Overview -------------------------------------------------------------------
+
+[overview]
+zoom = 0.5                     # 0.1-0.75
+# Pinned windows stay hidden until overview closes; visible scratchpads are dismissed.
+# background_blur = true        # blur the wallpaper while the overview is open
+# background_tint = "#10101430"
+# workspace_background = "#00000044" # set alpha to FF for an opaque background
+# shortcuts = true
+# shortcut_keys = "1234567890" # favorite keys in preference order
+# badge_color = "#7AA3FFFF"   # defaults to colors.accent_primary
+
+# Hot corners ---------------------------------------------------------------
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500                # 0-10000, 0 activates immediately
+action = "overview-open"
+
+[hot_corners.top_right]
+enabled = false
+delay_ms = 500
+action = "overview-close"
+
+[hot_corners.bottom_left]
+enabled = false
+delay_ms = 500
+action = "overview-toggle"
+
+[hot_corners.bottom_right]
+enabled = false
+delay_ms = 500
+action = "spawn:notify-send 'Bottom right'"
+
+# Layer rules (see docs/user/layer-rules.md) ---------------------------
+
+[[layer_rule]]
+match.namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_optimized = false
+
+# Security context rules (see docs/user/security.md) ----------------------
+
+# Grant a sandboxed clipboard manager the data-control protocol
+# [[security_context_rule]]
+# match.sandbox_engine = 'org\.flatpak'
+# match.app_id = 'org\.example\.ClipboardManager'
+# allow_globals = ["ext_data_control_manager_v1"]

@@ -1,0 +1,163 @@
+# Keybinds (see docs/user/keybinds.md) --------------------------------------
+
+[keybinds]
+
+# --- General ---
+"Super+Slash"       = "cheatsheet-toggle"         
+"Super+E"           = "session-quit"                
+"Ctrl+Alt+Delete"   = "session-quit"
+ 
+# --- Apps ---
+"Super+Space"   = "spawn:kitty"
+"Super+B"       = "spawn:firefox"
+"Super+N"       = "spawn:nautilus"
+# "Super+Z" = "spawn:hyprlock"
+ 
+# --- Noctalia ---
+"Super"         = "spawn:noctalia msg panel-toggle launcher"
+"Super+S"       = "spawn:noctalia msg settings-toggle"
+"Super+W"       = "spawn:noctalia msg panel-toggle wallpaper"
+"Super+A"       = "spawn:noctalia msg bar-toggle"
+"Alt+Tab"       = "spawn:noctalia msg window-switcher"
+"Print"         = "spawn:noctalia msg screenshot-region"
+"Super+Print"   = "spawn:noctalia msg screenshot-fullscreen"
+"Super+Alt+W"   = "spawn:noctalia msg desktop-widgets-toggle-edit"
+"Super+Escape"  = "spawn:noctalia msg panel-toggle session"
+ 
+# --- Overview ---
+"Super+X" = { action = "overview-toggle", repeat = false }
+ 
+# --- Window management ---
+"Super+Q"       = { action = "window-close", repeat = false }
+"Super+R"       = "window-cycle-width"
+"Super+Alt+R"   = "window-cycle-height"
+"Super+Ctrl+R"  = "window-set-height:1.0"
+"Super+F"       = "window-toggle-maximize"
+"Super+Alt+F"   = "window-toggle-fullscreen"
+"Super+Ctrl+F"  = "window-set-width:1.0"
+"Super+Ctrl+C"  = "column-center"
+"Super+Alt+V"   = "window-focus-switch-floating"
+"Super+V"       = "window-toggle-floating"
+# "Super+C"       = "spawn:python3 ~/.config/umbriel/scripts/niri_float_helper.py -d"
+ 
+# --- Resize columns and windows ---
+"Super+Minus"       = "window-modify-width:-0.1"
+"Super+Equal"       = "window-modify-width:0.1"
+"Super+Shift+Minus" = "window-modify-height:-0.1"
+"Super+Shift+Equal" = "window-modify-height:0.1"
+ 
+# --- Consume / expel windows in columns ---
+"Super+Comma"           = "window-consume-right"
+"Super+Period"          = "window-consume-or-expel-right"
+"Super+BracketLeft"     = "window-consume-or-expel-left"
+"Super+BracketRight"    = "window-consume-or-expel-right"
+ 
+# --- Focus columns ---
+"Super+Left"    = "window-focus-left"
+"Super+Right"   = "window-focus-right"
+"Super+H"       = "window-focus-left"
+"Super+L"       = "window-focus-right"
+ 
+# --- Focus windows within a column ---
+"Super+J" = "window-focus-down"
+"Super+K" = "window-focus-up"
+ 
+# --- Move columns / windows ---
+"Super+Alt+Left"    = "column-move-left"
+"Super+Alt+Right"   = "column-move-right"
+"Super+Alt+H"       = "column-move-left"
+"Super+Alt+L"       = "column-move-right"
+"Super+Alt+J"       = "window-move-down"
+"Super+Alt+K"       = "window-move-up"
+ 
+# --- Move columns between workspaces ---
+"Super+Alt+Down"    = "column-move-to-workspace-next"
+"Super+Alt+Up"      = "column-move-to-workspace-previous"
+"Super+Ctrl+U"      = "column-move-to-workspace-next"
+"Super+Ctrl+I"      = "column-move-to-workspace-previous"
+ 
+# --- Focus workspaces ---
+"Super+Down"    = "workspace-next"
+"Super+Up"      = "workspace-previous"
+"Super+U"       = "workspace-next"
+"Super+I"       = "workspace-previous"
+ 
+# --- Move workspaces ---
+"Super+Shift+Down"  = "workspace-move-down"
+"Super+Shift+Up"    = "workspace-move-up"
+"Super+Shift+U"     = "workspace-move-down"
+"Super+Shift+I"     = "workspace-move-up"
+ 
+# --- Scroll to navigate ---
+"Super+Alt+WheelDown"       = "workspace-next"
+"Super+Alt+WheelUp"         = "workspace-previous"
+"Super+Shift+Alt+WheelDown" = "column-move-to-workspace-next"
+"Super+Shift+Alt+WheelUp"   = "column-move-to-workspace-previous"
+"Super+WheelDown"           = "window-focus-right"
+"Super+WheelUp"             = "window-focus-left"
+"Super+Shift+WheelDown"     = "column-move-right"
+"Super+Shift+WheelUp"       = "column-move-left"
+ 
+# --- Jump to workspace by index ---
+"Super+1" = "workspace-switch:1"
+"Super+2" = "workspace-switch:2"
+"Super+3" = "workspace-switch:3"
+"Super+4" = "workspace-switch:4"
+"Super+5" = "workspace-switch:5"
+"Super+6" = "workspace-switch:6"
+"Super+7" = "workspace-switch:7"
+"Super+8" = "workspace-switch:8"
+"Super+9" = "workspace-switch:9"
+ 
+# --- Move column to workspace by index ---
+"Super+Alt+1" = "column-move-to-workspace:1"
+"Super+Alt+2" = "column-move-to-workspace:2"
+"Super+Alt+3" = "column-move-to-workspace:3"
+"Super+Alt+4" = "column-move-to-workspace:4"
+"Super+Alt+5" = "column-move-to-workspace:5"
+"Super+Alt+6" = "column-move-to-workspace:6"
+"Super+Alt+7" = "column-move-to-workspace:7"
+"Super+Alt+8" = "column-move-to-workspace:8"
+"Super+Alt+9" = "column-move-to-workspace:9"
+ 
+# --- Column first / last ---
+"Super+Home"        = "column-focus-first"
+"Super+End"         = "column-focus-last"
+"Super+Ctrl+Home"   = "column-move-to-first"
+"Super+Ctrl+End"    = "column-move-to-last"
+
+
+# --- Scratchpad ---
+"Super+Alt+D"   = "window-move-to-scratchpad"
+"Super+D"       = "scratchpad-toggle"
+"Super+Ctrl+D"  = "window-restore-from-scratchpad"
+"Super+Tab"     = "scratchpad-focus-next"
+# Scratchpads return to their original output and position after temporary output loss.
+# Add `:DP-1` to any scratchpad action to target that output from anywhere.
+# "Super+0" = "scratchpad-toggle:DP-1"
+# "Super+Shift+0" = "window-move-to-scratchpad:DP-1"
+# "Super+Ctrl+0" = "window-restore-from-scratchpad:DP-1"
+# "Super+Alt+0" = "scratchpad-focus-next:DP-1"
+# Directional focus binds also navigate the overview: left/right select cards,
+# while up/down select workspace rows. The default Super+H/J/K/L binds need no
+# separate overview mapping.
+# "Super+Space" is taken above; pick a free chord for layout switching.
+# "Super+Shift+K" = "keyboard-layout-next"
+# Drag a scrolling workspace directly along its configured axis.
+# "Super+MouseMiddle" = "layout-scroll-drag"
+# Submaps can nest; entry binds should not repeat. Inspect the active layer with `umbriel submap`, or follow changes
+# with `umbriel subscribe submap`.
+# "Super+R" = { action = "submap:resize", repeat = false }
+# Omit `submap` to add no post-action transition, or set it to "reset" to exit after the action.
+# "submap[resize],1" = { action = "window-set-width:0.5", submap = "reset" }
+# "submap[resize],Escape" = "submap:reset"
+
+# --- Media and volume (see docs/user/keybinds.md#example-media-and-brightness-keys) ---
+"XF86AudioRaiseVolume"  = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+"XF86AudioLowerVolume"  = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+"Super+XF86AudioMute"   = "spawn:wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+"XF86AudioPlay"         = "spawn:playerctl play-pause"
+"XF86AudioNext"         = "spawn:playerctl next"
+"XF86AudioPrev"         = "spawn:playerctl prev"
+# --- Controls intended to remain usable while the session is locked use the table form.---
+"XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down 10", allow_when_locked = true }

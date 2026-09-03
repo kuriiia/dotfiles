@@ -1,0 +1,5 @@
+// place awww wallpaper in overview
+layer-rule {
+    match namespace="^awww-daemon$"
+    place-within-backdrop true
+}

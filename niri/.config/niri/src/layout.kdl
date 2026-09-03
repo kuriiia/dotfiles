@@ -1,7 +1,8 @@
 layout {
     gaps 2
-    //new
-    background-color "#000"
+    
+    // transparent workspaces
+    background-color "transparent"
     center-focused-column "never"
 
     // controlled with super+R
