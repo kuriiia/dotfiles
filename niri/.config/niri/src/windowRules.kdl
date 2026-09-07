@@ -42,6 +42,14 @@ window-rule {
     clip-to-geometry true
 }
 
+//lookapp opens as floating
+window-rule {
+    match app-id="^lookapp$"
+    open-floating true
+    focus-ring { off; }
+    shadow { off; }
+}
+
 //workspaces
 workspace "a" { }
 

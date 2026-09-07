@@ -19,6 +19,7 @@ hotkey-overlay {
 }
 
 spawn-at-startup "mako"
+spawn-at-startup "lookapp"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
