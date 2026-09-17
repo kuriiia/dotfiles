@@ -23,7 +23,7 @@ binds {
     Super+Z     { spawn "hyprlock"; }
 
     //Ignis panels
-    Super+A     allow-inhibiting=false { spawn "gdbus" "call" "--session" "--dest" "com.look.Desktop" "--object-path" "/com/look/Desktop" "--method" "com.look.Desktop.Toggle"; }
+    Super+A         { spawn "fuzzel"; }
     // Super+Return { spawn "ignis" "open-window" "PowerMenu"; }
     // Super+S      { spawn "ignis" "open-window" "Settings"; }
 

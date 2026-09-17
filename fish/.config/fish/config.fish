@@ -7,6 +7,8 @@ set fish_greeting
 zoxide init fish | source
 fzf --fish | source
 
+set -gx PATH "$HOME/.npm-global/bin" $PATH
+
 # Use micro as man pager
 
 set -x MANPAGER "micro"

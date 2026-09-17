@@ -30,8 +30,13 @@ tab_powerline_style  round
 # Tab title format
 tab_title_template "{index}"
 
-active_tab_font_style   bold
 
+# Colors
+active_tab_foreground   #050000
+active_tab_background   #eee
+active_tab_font_style   bold
+inactive_tab_foreground #444
+inactive_tab_background #999
 
 
 map alt+t           new_tab
@@ -55,9 +60,3 @@ map alt+kp_0        change_font_size all 0
 # user overrides: ~/.config/kitty/user.conf is never shipped, never touched on
 # update, loads last so your stuff wins. globinclude is silent if missing.
 globinclude user.conf
-
-
-# BEGIN_KITTY_THEME
-# Dark Pastel
-include current-theme.conf
-# END_KITTY_THEME

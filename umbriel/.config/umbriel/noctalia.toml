@@ -1,20 +1,20 @@
 [colors]
-background = "#1e222aF0"
+background = "#1e222aFF"
 text_primary = "#d1d1c7FF"
 text_muted = "#8e959eFF"
 accent_primary = "#d95757FF"
 accent_secondary = "#e6b450FF"
 warning = "#39bae6FF"
 error = "#aad94cFF"
+insert_hint = "#39bae680"
+backdrop = "#1e222aFF"
 
-[appearance]
-border_focused = "#d95757FF"
-border_unfocused = "#1e222aFF"
-scratchpad_border_focused = "#39bae6FF"
-scratchpad_border_unfocused = "#0a4c62FF"
-outer_border_color = "#1f2430FF"
-insert_hint_color = "#39bae680"
-backdrop_color = "#1e222aFF"
+[colors.border]
+focused = "#d95757FF"
+unfocused = "#1e222aFF"
+scratchpad_focused = "#39bae6FF"
+scratchpad_unfocused = "#0a4c62FF"
+outer = "#1f2430FF"
 
-[overview]
+[colors.overview]
 background_tint = "#0b0e1488"

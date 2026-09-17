@@ -1,5 +1,6 @@
-shaders
+[FAVORITES]
 
+[shaders]
 crosshatch
 crosswarp
 perlin
@@ -11,3 +12,11 @@ ripple
 snap
 static-fade
 wave-warp
+
+[theme]
+ayu
+
+[font]
+fredoka
+mesloGL
+Nova Mono

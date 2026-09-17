@@ -43,13 +43,12 @@ window-rule {
 }
 
 //lookapp opens as floating
-window-rule {
-    match app-id="^lookapp$"
-    open-floating true
-    focus-ring { off; }
-    shadow { off; }
-}
+// window-rule {
+//     match app-id="^lookapp$"
+//     open-floating true
+//     focus-ring { off; }
+//     shadow { off; }
+// }
 
 //workspaces
 workspace "a" { }
-

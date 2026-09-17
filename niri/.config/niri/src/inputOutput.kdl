@@ -27,5 +27,5 @@ output "eDP-1" {
 
 cursor {
     xcursor-size 22
-    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-theme "Qogir-cursors"
 }
