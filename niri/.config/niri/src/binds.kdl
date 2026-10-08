@@ -6,9 +6,11 @@ binds {
     // Super+M
     // Super+O
     // Super+P
+    // Super+S
     // Super+T
     // Super+W
     // Super+Y
+    // Super+Return
 
     //General
     Super+Slash     { show-hotkey-overlay; }
@@ -19,13 +21,8 @@ binds {
     Super+Space hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+B     { spawn "firefox"; }
     Super+N     { spawn "nautilus"; }
-    // Super+Z     { spawn "zed"; }
     Super+Z     { spawn "hyprlock"; }
-
-    //Ignis panels
-    Super+A         { spawn "fuzzel"; }
-    // Super+Return { spawn "ignis" "open-window" "PowerMenu"; }
-    // Super+S      { spawn "ignis" "open-window" "Settings"; }
+    Super+A     { spawn "~/.config/niri/scripts/toggle.sh" "otter-launcher"; }
 
     //Overview
     Super+X repeat=false { toggle-overview; }

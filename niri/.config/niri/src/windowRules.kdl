@@ -30,25 +30,40 @@ window-rule {
     open-on-workspace "a"
 }
 
+//Nautilus: open file/folder window floating and small size
+window-rule {
+    match app-id="xdg-desktop-portal-gtk"
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}
 //Satty
 window-rule {
     match app-id="com.gabm.satty"
     open-floating true
 }
 
-//Default: rounded corners on all windows.
+//otter-launcher: opens as floating window
 window-rule {
-    geometry-corner-radius 22
-    clip-to-geometry true
+    match app-id=r#"^otter-launcher$"#
+    open-floating true
+    default-column-width { fixed 500; }
+    default-window-height { fixed 430; }
 }
 
-//lookapp opens as floating
-// window-rule {
-//     match app-id="^lookapp$"
-//     open-floating true
-//     focus-ring { off; }
-//     shadow { off; }
-// }
+//fsel: open as floating window
+window-rule {
+    match app-id=r#"^fsel$"#
+    open-floating true
+    default-column-width { fixed 500; }
+    default-window-height { fixed 430; }
+}
+
+//Default: rounded corners on all windows.
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
 
 //workspaces
 workspace "a" { }
