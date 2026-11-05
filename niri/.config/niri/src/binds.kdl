@@ -22,7 +22,7 @@ binds {
     Super+B     { spawn "firefox"; }
     Super+N     { spawn "nautilus"; }
     Super+Z     { spawn "hyprlock"; }
-    Super+A     { spawn "~/.config/niri/scripts/toggle.sh" "otter-launcher"; }
+    Super+A     { spawn "~/.config/niri/scripts/toggle.sh" "fsel"; }
 
     //Overview
     Super+X repeat=false { toggle-overview; }

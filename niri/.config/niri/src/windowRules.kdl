@@ -43,14 +43,6 @@ window-rule {
     open-floating true
 }
 
-//otter-launcher: opens as floating window
-window-rule {
-    match app-id=r#"^otter-launcher$"#
-    open-floating true
-    default-column-width { fixed 500; }
-    default-window-height { fixed 430; }
-}
-
 //fsel: open as floating window
 window-rule {
     match app-id=r#"^fsel$"#
